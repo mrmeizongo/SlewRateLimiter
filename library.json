@@ -1,0 +1,18 @@
+{
+	"name": "SlewRateLimiter",
+	"keywords": "Slew, SlewRate, SlewRateLimiter, Slew rate, Slew rate limiter",
+	"description": "A simple slew rate limiter written in C++",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/mrmeizongo/SlewRateLimiter.git"
+	},
+	"authors": {
+		"name": "Jamal Meizongo",
+		"url": "https://github.com/mrmeizongo",
+		"maintainer": "true"
+	},
+	"version": "1.0.0",
+	"license": "MIT",
+	"frameworks": "*",
+	"platforms": "*"
+}
