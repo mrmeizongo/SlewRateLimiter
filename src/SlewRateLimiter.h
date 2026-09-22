@@ -26,25 +26,22 @@ SOFTWARE.
 #ifndef _SLEWRATE
 #define _SLEWRATE
 
-template <typename T, typename U>
+template <typename T>
 class SlewRateLimiter
 {
 public:
     SlewRateLimiter()
-        : _output{U{}}, _ratePerSecond{1000}, _maxChangeRate{1}
+        : _output{T{}}, _ratePerSecond{1000}, _maxChangeRate{1}
     {
     }
 
     SlewRateLimiter(uint16_t ratePerSecond, float dt)
-        : _output{U{}}, _ratePerSecond{ratePerSecond}
+        : _output{T{}}, _ratePerSecond{ratePerSecond}
     {
         _maxChangeRate = ratePerSecond * dt;
     }
 
-    SlewRateLimiter(SlewRateLimiter &&) = default;
-    SlewRateLimiter &operator=(SlewRateLimiter &&) = default;
-
-    U update(T target)
+    T update(T target)
     {
         const T error = target - _output;
 
@@ -67,10 +64,10 @@ public:
         reset();
     }
 
-    void reset(U prevOutput = U{}) { _output = prevOutput; }
+    void reset(T prevOutput = T{}) { _output = prevOutput; }
 
 private:
-    U _output;
+    T _output;
     uint16_t _ratePerSecond;
     uint8_t _maxChangeRate; // Under reasonable conditions, 0 < maxChangeRate < 255
 };
