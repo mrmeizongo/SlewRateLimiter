@@ -60,8 +60,6 @@ public:
         float dt = static_cast<float>(_maxChangeRate) / _ratePerSecond;
         _maxChangeRate = newRatePerSecond * dt;
         _ratePerSecond = newRatePerSecond;
-
-        reset();
     }
 
     void reset(T prevOutput = T{}) { _output = prevOutput; }
